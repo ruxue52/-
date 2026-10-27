@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/scan/scan",
+    "pages/member/member",
+    "pages/books/books",
+    "pages/detail/detail",
+    "pages/login/login",
+    "pages/orders/orders"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2e4a3d",
+    "navigationBarTitleText": "晓镜书阁 · 读者端",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f2ea",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8b8f88",
+    "selectedColor": "#2e4a3d",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "书房" },
+      { "pagePath": "pages/scan/scan", "text": "扫书" },
+      { "pagePath": "pages/member/member", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

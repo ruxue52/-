@@ -1,0 +1,17 @@
+.search { display: flex; align-items: center; }
+.search .input { flex: 1; height: 84rpx; border: 1rpx solid #e4e8f0; border-radius: 12rpx; padding: 0 20rpx; font-size: 28rpx; }
+.btn-scan, .btn-go { height: 84rpx; line-height: 84rpx; padding: 0 24rpx; margin-left: 12rpx; border-radius: 12rpx; font-size: 28rpx; }
+.btn-scan { background: #eef3ff; color: #2f6fed; }
+.btn-go { background: #2f6fed; color: #fff; }
+.btn-scan::after, .btn-go::after { border: none; }
+.kv { display: flex; padding: 16rpx 0; border-bottom: 1rpx solid #f0f2f7; }
+.kv:last-child { border-bottom: none; }
+.kv .k { width: 150rpx; color: #6b7688; }
+.kv .v { flex: 1; }
+.stock-row { display: flex; align-items: center; padding: 24rpx 0; border-bottom: 1rpx solid #f0f2f7; }
+.stock-row:last-child { border-bottom: none; }
+.st-left { flex: 1; display: flex; flex-direction: column; }
+.st-wh { font-size: 30rpx; font-weight: 600; }
+.st-shelf { font-size: 22rpx; color: #8a93a6; margin-top: 6rpx; }
+.st-qty { font-size: 40rpx; font-weight: 700; color: #22a06b; }
+.st-qty.low { color: #e5484d; }

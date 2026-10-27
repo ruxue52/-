@@ -1,0 +1,13 @@
+.login-page { min-height: 100vh; background: linear-gradient(160deg, #3b78f0, #2f6fed 45%, #2456c9); padding: 140rpx 48rpx 0; box-sizing: border-box; }
+.login-head { text-align: center; color: #fff; margin-bottom: 60rpx; }
+.login-head .logo { width: 120rpx; height: 120rpx; line-height: 120rpx; border-radius: 28rpx; background: rgba(255,255,255,0.2); font-size: 60rpx; font-weight: 700; margin: 0 auto 24rpx; text-align: center; }
+.login-head .app-name { font-size: 44rpx; font-weight: 700; }
+.login-head .app-sub { font-size: 24rpx; opacity: 0.85; margin-top: 8rpx; }
+.login-form { background: #fff; border-radius: 24rpx; padding: 48rpx 36rpx; box-shadow: 0 12rpx 40rpx rgba(0,0,0,0.12); }
+.field { margin-bottom: 32rpx; }
+.field .label { font-size: 26rpx; color: #6b7688; display: block; margin-bottom: 12rpx; }
+.field .input { height: 88rpx; border: 1rpx solid #e4e8f0; border-radius: 12rpx; padding: 0 24rpx; font-size: 30rpx; }
+.msg { color: #e5484d; font-size: 26rpx; min-height: 40rpx; }
+.btn { height: 92rpx; line-height: 92rpx; background: #2f6fed; color: #fff; border-radius: 12rpx; font-size: 32rpx; margin-top: 8rpx; }
+.btn::after { border: none; }
+.tip { text-align: center; color: #8a93a6; font-size: 24rpx; margin-top: 24rpx; }

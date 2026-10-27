@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/scan/scan",
+    "pages/stock/stock",
+    "pages/check/check",
+    "pages/order/order"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2f6fed",
+    "navigationBarTitleText": "晓镜书阁",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4f6fb",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8a93a6",
+    "selectedColor": "#2f6fed",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/scan/scan", "text": "扫码" },
+      { "pagePath": "pages/stock/stock", "text": "库存" },
+      { "pagePath": "pages/order/order", "text": "单据" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

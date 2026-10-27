@@ -1,0 +1,167 @@
+/* 晓镜书阁 · 读者端全局样式（宣纸底色 + 松墨绿 + 赭金） */
+page {
+  background-color: #f5f2ea;
+  color: #23282a;
+  font-size: 28rpx;
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.container { padding: 24rpx; box-sizing: border-box; }
+
+.card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 6rpx 20rpx rgba(46, 74, 61, 0.06);
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2e4a3d;
+  margin-bottom: 20rpx;
+  letter-spacing: 2rpx;
+}
+
+.muted { color: #8b8f88; font-size: 24rpx; }
+.row { display: flex; align-items: center; }
+.spacer { flex: 1; }
+.center { text-align: center; }
+.mt16 { margin-top: 32rpx; }
+
+/* 品牌头图区 */
+.brand-bar {
+  padding: 44rpx 32rpx 40rpx;
+  background: linear-gradient(135deg, #33513f 0%, #2e4a3d 55%, #24382f 100%);
+  color: #f2efe6;
+}
+.brand-name {
+  font-size: 46rpx;
+  letter-spacing: 10rpx;
+  font-weight: 500;
+}
+.brand-motto {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  letter-spacing: 4rpx;
+  color: rgba(242, 239, 230, 0.7);
+}
+
+/* 搜索框 */
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-top: 28rpx;
+  padding: 18rpx 24rpx;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 40rpx;
+}
+.search-input {
+  flex: 1;
+  font-size: 26rpx;
+  color: #23282a;
+  margin-left: 12rpx;
+}
+.search-placeholder { color: #a9ada6; font-size: 26rpx; }
+
+/* 图书封面与占位 */
+.book-cover {
+  width: 140rpx;
+  height: 190rpx;
+  border-radius: 10rpx;
+  background: #e8e3d7;
+  flex-shrink: 0;
+}
+.cover-ph {
+  width: 140rpx;
+  height: 190rpx;
+  border-radius: 10rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f6f2e6;
+  font-size: 56rpx;
+  letter-spacing: 4rpx;
+  background: linear-gradient(160deg, #4a7059 0%, #33513f 60%, #26382e 100%);
+  box-shadow: inset 0 0 0 2rpx rgba(255, 255, 255, 0.16);
+}
+.cover-ph.gold { background: linear-gradient(160deg, #c19b64 0%, #b08d57 60%, #8f7042 100%); }
+.cover-ph.ink { background: linear-gradient(160deg, #55606b 0%, #3d4750 60%, #2b3238 100%); }
+
+.book-name { font-size: 30rpx; font-weight: 600; line-height: 1.4; color: #23282a; }
+.book-meta { font-size: 24rpx; color: #8b8f88; margin-top: 8rpx; }
+.book-info { flex: 1; min-width: 0; margin-left: 20rpx; }
+
+/* 价格 */
+.price { color: #b0552f; font-size: 32rpx; font-weight: 700; }
+.price-unit { font-size: 22rpx; font-weight: 400; margin-right: 4rpx; }
+.price-old {
+  color: #a9ada6;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-left: 12rpx;
+}
+
+/* 标签 / 分类 chip */
+.chip-scroll { white-space: nowrap; }
+.chip {
+  display: inline-block;
+  padding: 12rpx 28rpx;
+  margin: 0 16rpx 16rpx 0;
+  border-radius: 32rpx;
+  background: #ffffff;
+  color: #5d6560;
+  font-size: 25rpx;
+  border: 2rpx solid #e4e0d5;
+}
+.chip.active {
+  background: #2e4a3d;
+  color: #f6f2e6;
+  border-color: #2e4a3d;
+}
+.chip.sub { background: #f0ece1; border-color: #ece7db; font-size: 24rpx; }
+
+.tag {
+  display: inline-block;
+  padding: 4rpx 14rpx;
+  border-radius: 8rpx;
+  background: #f0ece1;
+  color: #7a6a45;
+  font-size: 22rpx;
+}
+.tag-ok { background: #e8f2ea; color: #3c6b4d; }
+.tag-no { background: #f5eeee; color: #a86464; }
+
+/* 按钮 */
+.btn-primary {
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 44rpx;
+  background: #2e4a3d;
+  color: #f6f2e6;
+  font-size: 30rpx;
+  letter-spacing: 4rpx;
+}
+.btn-primary.disabled { opacity: 0.5; }
+.btn-ghost {
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  border-radius: 42rpx;
+  border: 2rpx solid #2e4a3d;
+  color: #2e4a3d;
+  font-size: 28rpx;
+}
+
+/* 三宫格数值 */
+.stat-grid { display: flex; }
+.stat-cell { flex: 1; text-align: center; }
+.stat-value { font-size: 38rpx; font-weight: 700; color: #2e4a3d; }
+.stat-label { font-size: 23rpx; color: #8b8f88; margin-top: 6rpx; }
+
+/* 空状态与分割线 */
+.empty { padding: 80rpx 0; text-align: center; color: #a9ada6; font-size: 26rpx; }
+.divider { height: 2rpx; background: #efeade; margin: 20rpx 0; }

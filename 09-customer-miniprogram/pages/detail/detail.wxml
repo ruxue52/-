@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">
+    <view class="empty">加载中…</view>
+  </view>
+
+  <view class="card" wx:elif="{{error}}">
+    <view class="empty">{{error}}</view>
+    <view class="btn-ghost" bindtap="goScan">换个 ISBN 再查</view>
+  </view>
+
+  <block wx:else>
+    <!-- 图书信息 -->
+    <view class="card">
+      <view class="head">
+        <image wx:if="{{book.coverUrl}}" class="book-cover big" src="{{book.coverUrl}}" mode="aspectFill" />
+        <view wx:else class="cover-ph big">{{book.coverText}}</view>
+        <view class="head-info">
+          <view class="book-name big">{{book.bookName}}</view>
+          <view class="book-meta">{{book.author}}</view>
+          <view class="book-meta">{{book.publisherName}}</view>
+          <view class="mt16">
+            <text class="price"><text class="price-unit">¥</text>{{book.priceText}}</text>
+            <text class="price-old" wx:if="{{book.priceOld}}">¥{{book.priceOld}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+      <view class="kv"><text class="k">ISBN</text><text class="v">{{book.isbn}}</text></view>
+      <view class="kv"><text class="k">分类</text><text class="v">{{book.categoryName}}</text></view>
+      <view class="kv"><text class="k">出版日期</text><text class="v">{{book.publishDate}}</text></view>
+      <view class="kv"><text class="k">单位</text><text class="v">{{book.unit}}</text></view>
+      <view class="kv"><text class="k">货架位</text><text class="v">{{book.shelfNo}}</text></view>
+    </view>
+
+    <!-- 门店在架 -->
+    <view class="card">
+      <view class="row">
+        <view class="card-title" style="margin-bottom:0">门店在架</view>
+        <view class="spacer"></view>
+        <text class="tag {{available ? 'tag-ok' : 'tag-no'}}">{{available ? '有货' : '暂无在架'}}</text>
+      </view>
+      <view class="stock-row" wx:for="{{stock}}" wx:key="warehouseId">
+        <text>{{item.warehouseName}}</text>
+        <view class="spacer"></view>
+        <text class="stock-qty">在架 {{item.qtyText}}</text>
+      </view>
+      <view class="empty" wx:if="{{!stock.length}}">暂无可查门店</view>
+    </view>
+
+    <!-- 内容简介 -->
+    <view class="card" wx:if="{{book.summary}}">
+      <view class="card-title">内容简介</view>
+      <view class="summary">{{book.summary}}</view>
+    </view>
+
+    <!-- 会员权益提示 -->
+    <view class="card member-tip">
+      <block wx:if="{{member}}">
+        <text>{{member.customerName}}·{{member.levelName}}，到店购书享 {{member.discount}}% 结算价</text>
+        <view class="mt16"><text class="muted" bindtap="goMember">查看我的会员权益 ›</text></view>
+      </block>
+      <block wx:else>
+        <text>登录会员账号，出示手机号即可享会员折扣与积分</text>
+        <view class="mt16"><text class="muted" bindtap="goMember">去登录 / 查看会员权益 ›</text></view>
+      </block>
+    </view>
+  </block>
+</view>

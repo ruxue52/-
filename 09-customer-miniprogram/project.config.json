@@ -1,0 +1,18 @@
+{
+  "description": "晓镜书阁 · 读者端（会员端）小程序，对接书店进销存系统 /api 后端",
+  "appid": "wx680ce7cae16fdb65",
+  "projectname": "ShuHaiGe-Customer",
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "bigPackageSizeSupport": true
+  },
+  "miniprogramRoot": "./",
+  "condition": {}
+}

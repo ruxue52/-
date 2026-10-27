@@ -1,0 +1,175 @@
+/* 晓镜书阁 · PC 端 公共样式 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #2f6fed;
+  --primary-dark: #1f57c4;
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --border: #e4e8f0;
+  --text: #1f2733;
+  --text-sub: #6b7688;
+  --success: #22a06b;
+  --warning: #e08a00;
+  --danger: #e5484d;
+  --radius: 10px;
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button { font-family: inherit; cursor: pointer; }
+input, select { font-family: inherit; }
+
+/* ---------- 布局 ---------- */
+.layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 220px;
+  background: #1b2436;
+  color: #cbd5e6;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; bottom: 0; left: 0;
+}
+.sidebar .brand {
+  height: 64px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 20px;
+  font-size: 18px; font-weight: 600; color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sidebar .brand .logo {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: linear-gradient(135deg, #4a8bff, #2f6fed);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: #fff;
+}
+.sidebar nav { padding: 12px 0; flex: 1; }
+.sidebar nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 22px; color: #cbd5e6; text-decoration: none;
+  font-size: 14px; border-left: 3px solid transparent;
+}
+.sidebar nav a:hover { background: rgba(255,255,255,.06); color: #fff; }
+.sidebar nav a.active {
+  background: rgba(47,111,237,.18);
+  color: #fff; border-left-color: var(--primary);
+}
+.sidebar .side-foot {
+  padding: 14px 20px; font-size: 12px; color: #7d8aa3;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.main { flex: 1; margin-left: 220px; display: flex; flex-direction: column; }
+.topbar {
+  height: 60px; background: var(--card); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; position: sticky; top: 0; z-index: 5;
+}
+.topbar h1 { font-size: 17px; font-weight: 600; }
+.topbar .user { color: var(--text-sub); display: flex; align-items: center; gap: 14px; }
+.content { padding: 22px 24px 40px; }
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; margin-bottom: 18px;
+}
+.card > h3 { font-size: 15px; margin-bottom: 14px; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  border: 1px solid var(--border); background: #fff; color: var(--text);
+  padding: 8px 16px; border-radius: 8px; font-size: 14px;
+}
+.btn:hover { border-color: var(--primary); color: var(--primary); }
+.btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+.btn.primary:hover { background: var(--primary-dark); color: #fff; }
+.btn.success { background: var(--success); border-color: var(--success); color: #fff; }
+.btn.danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn.sm { padding: 4px 10px; font-size: 13px; border-radius: 6px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ---------- 表单 ---------- */
+.field { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.field label { width: 84px; color: var(--text-sub); }
+input[type=text], input[type=password], input[type=number], select {
+  height: 38px; padding: 0 12px; border: 1px solid var(--border);
+  border-radius: 8px; outline: none; background: #fff; color: var(--text);
+  flex: 1; min-width: 0;
+}
+input:focus, select:focus { border-color: var(--primary); }
+
+/* ---------- 表格 ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--text-sub); font-weight: 600; background: #fafbfe; }
+tbody tr:hover { background: #f7f9ff; }
+.table-wrap { overflow-x: auto; }
+
+/* ---------- 徽标 ---------- */
+.tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 12px; }
+.tag.draft { background: #eef2fa; color: #5566aa; }
+.tag.done { background: #e6f6ee; color: var(--success); }
+.tag.cancel { background: #fdecec; color: var(--danger); }
+.tag.warn { background: #fdf3e2; color: var(--warning); }
+.tag.diff { background: #fdecec; color: var(--danger); }
+
+/* ---------- KPI ---------- */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.kpi {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+}
+.kpi .k-label { color: var(--text-sub); font-size: 13px; }
+.kpi .k-value { font-size: 26px; font-weight: 700; margin-top: 6px; color: var(--primary); }
+
+.entry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+.entry {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px 18px; text-decoration: none; color: var(--text);
+  display: flex; flex-direction: column; gap: 8px; transition: .15s;
+}
+.entry:hover { border-color: var(--primary); box-shadow: 0 6px 18px rgba(47,111,237,.12); transform: translateY(-2px); }
+.entry .e-icon { font-size: 24px; }
+.entry .e-title { font-weight: 600; }
+.entry .e-desc { font-size: 12px; color: var(--text-sub); }
+
+.muted { color: var(--text-sub); }
+.mt8 { margin-top: 8px; } .mt16 { margin-top: 16px; } .mb8 { margin-bottom: 8px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spacer { flex: 1; }
+.center { text-align: center; }
+
+/* ---------- 登录页 ---------- */
+.login-wrap {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #eef3ff 0%, #dfe8ff 45%, #e9eefb 100%);
+}
+.login-card {
+  width: 380px; background: #fff; border-radius: 16px; padding: 34px 30px;
+  box-shadow: 0 18px 50px rgba(31,87,196,.18);
+}
+.login-card .title { font-size: 22px; font-weight: 700; text-align: center; }
+.login-card .subtitle { text-align: center; color: var(--text-sub); font-size: 13px; margin: 6px 0 24px; }
+.login-card .btn { width: 100%; height: 42px; margin-top: 6px; }
+.login-msg { color: var(--danger); font-size: 13px; min-height: 18px; margin-bottom: 8px; }
+.tip { font-size: 12px; color: var(--text-sub); text-align: center; margin-top: 16px; }
+
+/* ---------- 二维码 ---------- */
+.qr-box {
+  border: 1px dashed var(--border); border-radius: 10px; padding: 12px;
+  display: inline-flex; flex-direction: column; align-items: center; gap: 8px; background: #fafbff;
+}
+.qr-box img { width: 160px; height: 160px; image-rendering: pixelated; background: #fff; }
+
+.scan-input { display: flex; gap: 10px; }
+.scan-input input { font-size: 16px; letter-spacing: .5px; }
+.notice { font-size: 12px; color: var(--text-sub); }

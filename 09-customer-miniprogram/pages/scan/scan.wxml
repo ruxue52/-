@@ -1,0 +1,31 @@
+<view class="scan-hero">
+  <view class="hero-title">扫一扫，知有没有</view>
+  <view class="hero-sub">对准图书条形码，或本店图书二维码</view>
+  <view class="scan-btn" bindtap="doScan">开始扫码</view>
+</view>
+
+<view class="container">
+  <view class="card">
+    <view class="card-title">手动输入 ISBN</view>
+    <view class="manual-row">
+      <input class="manual-input" placeholder="如 9787536692930" placeholder-class="search-placeholder"
+             value="{{isbn}}" confirm-type="search" bindinput="onIsbnInput" bindconfirm="onQuery" />
+      <view class="manual-btn" bindtap="onQuery">查书</view>
+    </view>
+    <view class="muted" style="margin-top:16rpx">支持书籍条码（ISBN）与本系统二维码（SHG:BOOK:…）</view>
+  </view>
+
+  <view class="card" wx:if="{{recent.length}}">
+    <view class="row">
+      <view class="card-title" style="margin-bottom:0">最近查询</view>
+      <view class="spacer"></view>
+      <text class="muted" bindtap="clearRecent">清空</text>
+    </view>
+    <view class="recent-row" wx:for="{{recent}}" wx:key="isbn"
+          data-isbn="{{item.isbn}}" bindtap="queryRecent">
+      <text class="recent-isbn">{{item.isbn}}</text>
+      <view class="spacer"></view>
+      <text class="muted">{{item.time}}</text>
+    </view>
+  </view>
+</view>

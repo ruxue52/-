@@ -1,0 +1,42 @@
+{
+  "name": "shuhaiage-pc",
+  "version": "1.0.0",
+  "description": "晓镜书阁 · 书店进销存管理系统 PC 端（Electron，信创友好）",
+  "main": "main.js",
+  "author": "晓镜书阁项目组",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "electron-builder",
+    "dist:linux": "electron-builder --linux AppImage deb rpm",
+    "dist:win": "electron-builder --win nsis portable"
+  },
+  "build": {
+    "appId": "com.shuhaiage.psi",
+    "productName": "晓镜书阁PSI",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "rpm"],
+      "category": "Office",
+      "maintainer": "晓镜书阁项目组"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "target": ["dmg"]
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}

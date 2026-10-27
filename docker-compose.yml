@@ -1,0 +1,54 @@
+# 一条命令启动全栈：docker compose up -d --build
+# 访问：http://localhost:8088 （初始账号 admin / 123456）
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: psi-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_DATABASE: bookstore
+      TZ: Asia/Shanghai
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "13306:3306"   # 宿主机 13306，避免与本机 MySQL 3306 冲突
+    volumes:
+      - psi-mysql-data:/var/lib/mysql
+      - ./02-database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./02-database/data.sql:/docker-entrypoint-initdb.d/02-data.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+  backend:
+    build: ./03-backend
+    container_name: psi-backend
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/bookstore?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false"
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: "123456"
+      JWT_SECRET: "shuhaige-psi-secret-key-2026-bookstore-erp-sign"
+      TZ: Asia/Shanghai
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+  web:
+    build: ./04-frontend-web
+    container_name: psi-web
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8088:80"
+
+volumes:
+  psi-mysql-data:

@@ -1,0 +1,41 @@
+.head { display: flex; }
+.book-cover.big,
+.cover-ph.big {
+  width: 200rpx;
+  height: 272rpx;
+  font-size: 76rpx;
+  border-radius: 14rpx;
+}
+.head-info { flex: 1; min-width: 0; margin-left: 24rpx; }
+.book-name.big { font-size: 36rpx; }
+
+.kv {
+  display: flex;
+  padding: 12rpx 0;
+  font-size: 26rpx;
+}
+.kv .k { width: 150rpx; color: #8b8f88; }
+.kv .v { flex: 1; color: #3a423d; }
+
+.stock-row {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+  font-size: 27rpx;
+  color: #3a423d;
+}
+.stock-row:last-child { border-bottom: none; }
+.stock-qty { color: #2e4a3d; font-weight: 600; }
+
+.summary {
+  font-size: 26rpx;
+  color: #5d6560;
+  line-height: 1.7;
+}
+
+.member-tip {
+  background: #f7f4ec;
+  color: #5d6560;
+  font-size: 25rpx;
+}

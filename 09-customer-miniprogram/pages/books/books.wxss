@@ -1,0 +1,43 @@
+.filter-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 20rpx 24rpx 12rpx;
+  background: #f5f2ea;
+}
+.search-box { margin-top: 0; }
+.clear {
+  color: #a9ada6;
+  font-size: 26rpx;
+  padding: 0 8rpx;
+}
+.sort-row {
+  display: flex;
+  align-items: center;
+  margin-top: 8rpx;
+}
+.sort-item {
+  font-size: 26rpx;
+  color: #8b8f88;
+  margin-right: 28rpx;
+}
+.sort-item.on {
+  color: #2e4a3d;
+  font-weight: 600;
+}
+
+.book-row {
+  display: flex;
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+  align-items: flex-start;
+}
+.book-row:last-child { border-bottom: none; }
+.book-info .tag { margin-top: 10rpx; }
+
+.load-more {
+  padding: 26rpx 0 8rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #a9ada6;
+}

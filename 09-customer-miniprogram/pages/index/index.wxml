@@ -1,0 +1,66 @@
+<!-- 书架首页 -->
+<view class="brand-bar">
+  <view class="brand-name">晓镜书阁</view>
+  <view class="brand-motto">以书为镜 · 可知兴替</view>
+  <view class="search-box">
+    <text class="muted">🔍</text>
+    <input class="search-input" placeholder="书名 / 作者 / ISBN" placeholder-class="search-placeholder"
+           value="{{keyword}}" confirm-type="search" bindinput="onKeyword" bindconfirm="onSearch" />
+  </view>
+</view>
+
+<view class="container">
+  <!-- 快捷入口 -->
+  <view class="quick-row">
+    <view class="quick-item" bindtap="goScan">
+      <view class="quick-icon">扫</view>
+      <view class="quick-text">扫码查书</view>
+    </view>
+    <view class="quick-item" bindtap="goMember">
+      <view class="quick-icon gold">会</view>
+      <view class="quick-text">我的会员</view>
+    </view>
+    <view class="quick-item" bindtap="onSearch">
+      <view class="quick-icon ink">查</view>
+      <view class="quick-text">全部图书</view>
+    </view>
+  </view>
+
+  <!-- 分类 -->
+  <view class="card">
+    <view class="card-title">图书分类</view>
+    <view class="cat-grid">
+      <view class="cat-item" wx:for="{{categories}}" wx:key="id"
+            data-id="{{item.id}}" data-name="{{item.categoryName}}" bindtap="goCategory">
+        <text>{{item.categoryName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新书上架 -->
+  <view class="card">
+    <view class="row">
+      <view class="card-title" style="margin-bottom:0">新书上架</view>
+      <view class="spacer"></view>
+      <text class="muted" bindtap="onSearch">查看全部 ›</text>
+    </view>
+    <view class="book-list">
+      <view class="book-row" wx:for="{{books}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+        <image wx:if="{{item.coverUrl}}" class="book-cover" src="{{item.coverUrl}}" mode="aspectFill" />
+        <view wx:else class="cover-ph {{item.coverSkin}}">{{item.coverText}}</view>
+        <view class="book-info">
+          <view class="book-name">{{item.bookName}}</view>
+          <view class="book-meta">{{item.author}} · {{item.publisherName}}</view>
+          <view class="book-meta">{{item.categoryName}}</view>
+          <view class="mt16">
+            <text class="price"><text class="price-unit">¥</text>{{item.priceText}}</text>
+            <text class="price-old" wx:if="{{item.priceOld}}">¥{{item.priceOld}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="empty" wx:if="{{!books.length && !loading}}">暂无图书</view>
+  </view>
+
+  <view class="foot-note">晓镜书阁 · 书店进销存管理系统 读者端</view>
+</view>

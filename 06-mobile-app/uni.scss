@@ -1,0 +1,15 @@
+/* 晓镜书阁 · 移动端全局样式（uni.scss 变量） */
+$shg-primary: #2f6fed;
+$shg-primary-dark: #1f57c4;
+$shg-bg: #f4f6fb;
+$shg-text: #1f2733;
+$shg-text-sub: #6b7688;
+$shg-border: #e4e8f0;
+$shg-success: #22a06b;
+$shg-warning: #e08a00;
+$shg-danger: #e5484d;
+$shg-radius: 12rpx;
+
+/* 供页面使用 */
+$uni-color-primary: $shg-primary;
+$uni-text-color: $shg-text;

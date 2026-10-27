@@ -1,0 +1,50 @@
+<!-- 晓镜书阁 · 首页 -->
+<view class="container">
+  <view class="banner">
+    <view class="banner-title">晓镜书阁 · 移动工作台</view>
+    <view class="banner-sub">{{userText}}</view>
+    <view class="banner-stat" wx:if="{{overview}}">
+      <view class="bs-item">
+        <text class="bs-num">{{overview.todaySaleAmount !== undefined ? '¥' + overview.todaySaleAmount : '-'}}</text>
+        <text class="bs-label">今日销售</text>
+      </view>
+      <view class="bs-item">
+        <text class="bs-num">{{overview.warningCount !== undefined ? overview.warningCount : '-'}}</text>
+        <text class="bs-label">库存预警</text>
+      </view>
+      <view class="bs-item">
+        <text class="bs-num">{{overview.pendingCount !== undefined ? overview.pendingCount : '-'}}</text>
+        <text class="bs-label">待处理</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">常用功能</view>
+    <view class="grid">
+      <view class="grid-item" data-url="/pages/scan/scan" data-tab="1" bindtap="go">
+        <text class="gi-icon">📷</text><text class="gi-text">扫码</text>
+      </view>
+      <view class="grid-item" data-url="/pages/stock/stock" data-tab="1" bindtap="go">
+        <text class="gi-icon">📦</text><text class="gi-text">库存查询</text>
+      </view>
+      <view class="grid-item" data-url="/pages/check/check" data-tab="0" bindtap="go">
+        <text class="gi-icon">🧾</text><text class="gi-text">移动盘点</text>
+      </view>
+      <view class="grid-item" data-url="/pages/order/order" data-tab="1" bindtap="go">
+        <text class="gi-icon">📄</text><text class="gi-text">单据查询</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">移动端统计</view>
+    <view class="stat-row" wx:for="{{statList}}" wx:key="label">
+      <text class="s-label">{{item.label}}</text>
+      <text class="s-value">{{item.value}}</text>
+    </view>
+    <view wx:if="{{statList.length === 0}}" class="muted center">暂无统计数据（请确认后端已启动）</view>
+  </view>
+
+  <button class="logout" bindtap="logout">退出登录</button>
+</view>

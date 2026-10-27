@@ -1,0 +1,62 @@
+.login-hero {
+  padding: 80rpx 32rpx 70rpx;
+  text-align: center;
+  background: linear-gradient(135deg, #33513f 0%, #2e4a3d 55%, #24382f 100%);
+  color: #f2efe6;
+}
+.hero-title { font-size: 50rpx; letter-spacing: 12rpx; }
+.hero-sub {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  letter-spacing: 3rpx;
+  color: rgba(242, 239, 230, 0.72);
+}
+
+.field { margin-bottom: 30rpx; }
+.label {
+  display: block;
+  font-size: 25rpx;
+  color: #8b8f88;
+  margin-bottom: 14rpx;
+}
+.input {
+  height: 88rpx;
+  padding: 0 24rpx;
+  background: #f7f4ec;
+  border-radius: 14rpx;
+  font-size: 30rpx;
+}
+.field .code-btn {
+  margin-top: 16rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  border-radius: 14rpx;
+  border: 2rpx solid #2e4a3d;
+  color: #2e4a3d;
+  font-size: 27rpx;
+}
+.field .code-btn.disabled {
+  border-color: #cfd2cb;
+  color: #a9ada6;
+}
+
+.hint {
+  margin-bottom: 24rpx;
+  padding: 18rpx 20rpx;
+  background: #f7f4ec;
+  border-radius: 12rpx;
+  color: #7a6a45;
+  font-size: 24rpx;
+}
+
+.demo-row {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+  font-size: 27rpx;
+  color: #3a423d;
+  letter-spacing: 1rpx;
+}
+.demo-row:last-child { border-bottom: none; }

@@ -1,0 +1,35 @@
+# ---- Java / Maven ----
+target/
+*.class
+*.jar
+!**/src/main/resources/**/*.jar
+
+# ---- Node ----
+node_modules/
+dist/
+dist-electron/
+.vite/
+npm-debug.log*
+yarn-error.log*
+
+# ---- Python / other build artifacts ----
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+
+# ---- IDE / OS ----
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ---- Runtime ----
+debug.log
+*.log
+logs/
+uploads/
+
+# ---- Agent workspace (本地方案与临时脚本，不入库) ----
+.trae/

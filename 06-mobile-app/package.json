@@ -1,0 +1,24 @@
+{
+  "name": "shuhaiage-mobile",
+  "version": "1.0.0",
+  "description": "晓镜书阁 · 书店进销存管理系统 移动 APP（uni-app，Vue3）",
+  "private": true,
+  "scripts": {
+    "dev:app": "cross-env UNI_INPUT_DIR=. uni -p app",
+    "dev:h5": "cross-env UNI_INPUT_DIR=. uni",
+    "build:app": "cross-env UNI_INPUT_DIR=. uni build -p app",
+    "build:h5": "cross-env UNI_INPUT_DIR=. uni build"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-alpha-5030220261016001",
+    "@dcloudio/uni-app-plus": "3.0.0-alpha-5030220261016001",
+    "@dcloudio/uni-h5": "3.0.0-alpha-5030220261016001",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "3.0.0-alpha-5030220261016001",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-5030220261016001",
+    "cross-env": "^10.1.0",
+    "vite": "^5.2.8"
+  }
+}

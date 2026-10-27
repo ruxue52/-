@@ -1,0 +1,27 @@
+.order-item { display: flex; align-items: center; padding: 24rpx 0; border-bottom: 1rpx solid #f0f2f7; }
+.order-item:last-child { border-bottom: none; }
+.oi-left { flex: 1; display: flex; flex-direction: column; }
+.oi-no { font-size: 30rpx; font-weight: 600; }
+.oi-sub { font-size: 22rpx; color: #8a93a6; margin-top: 6rpx; }
+.oi-status { font-size: 24rpx; padding: 6rpx 18rpx; border-radius: 30rpx; background: #eef2fa; color: #5566aa; }
+.scan-btn { height: 100rpx; line-height: 100rpx; background: #2f6fed; color: #fff; border-radius: 14rpx; font-size: 32rpx; }
+.scan-btn::after { border: none; }
+.manual { display: flex; }
+.manual .input { flex: 1; height: 78rpx; border: 1rpx solid #e4e8f0; border-radius: 12rpx; padding: 0 20rpx; font-size: 28rpx; }
+.btn-add { margin-left: 12rpx; height: 78rpx; line-height: 78rpx; padding: 0 28rpx; background: #eef3ff; color: #2f6fed; border-radius: 12rpx; font-size: 28rpx; }
+.btn-add::after { border: none; }
+.item-row { display: flex; align-items: center; padding: 20rpx 0; border-bottom: 1rpx solid #f0f2f7; }
+.item-row:last-child { border-bottom: none; }
+.it-left { flex: 1; display: flex; flex-direction: column; }
+.it-name { font-size: 28rpx; }
+.it-isbn { font-size: 22rpx; color: #8a93a6; margin-top: 4rpx; }
+.it-right { display: flex; align-items: center; }
+.it-qty { font-size: 22rpx; color: #8a93a6; margin-right: 12rpx; }
+.it-input { width: 110rpx; height: 60rpx; border: 1rpx solid #e4e8f0; border-radius: 10rpx; text-align: center; font-size: 28rpx; }
+.it-diff { width: 70rpx; text-align: right; color: #8a93a6; font-size: 26rpx; }
+.it-diff.diff { color: #e5484d; font-weight: 700; }
+.footer { display: flex; margin-top: 24rpx; }
+.footer button { flex: 1; height: 88rpx; line-height: 88rpx; border-radius: 14rpx; font-size: 30rpx; }
+.btn-save { background: #fff; color: #2f6fed; border: 1rpx solid #2f6fed; margin-right: 20rpx; }
+.btn-finish { background: #22a06b; color: #fff; }
+.footer button::after { border: none; }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8080 data:; img-src 'self' http://localhost:8080 data:; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>晓镜书阁 · 单据 / 统计查询</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <div class="topbar">
+        <h1>单据 / 统计查询</h1>
+        <div class="user" id="userBox"></div>
+      </div>
+      <div class="content">
+        <div class="card">
+          <div class="row">
+            <button class="btn primary" data-tab="sale">出货单</button>
+            <button class="btn" data-tab="purchase">进货单</button>
+            <button class="btn" data-tab="stat">移动端统计</button>
+            <div class="spacer"></div>
+            <input type="text" id="keyword" placeholder="单号 / 关键词" style="width:200px" />
+            <button class="btn" id="searchBtn">查询</button>
+          </div>
+        </div>
+
+        <div class="card" id="saleCard">
+          <h3>出货单（GET /api/sale/orders）</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>出货单号</th><th>客户</th><th>仓库</th><th>数量</th><th>应收</th><th>实收</th><th>支付</th><th>状态</th><th>制单时间</th></tr>
+              </thead>
+              <tbody id="saleBody"><tr><td colspan="9" class="center muted">加载中…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" id="purchaseCard" style="display:none">
+          <h3>进货单（GET /api/purchase/orders）</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>进货单号</th><th>供应商</th><th>仓库</th><th>数量</th><th>总额</th><th>应付</th><th>状态</th><th>制单时间</th></tr>
+              </thead>
+              <tbody id="purchaseBody"><tr><td colspan="8" class="center muted">加载中…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" id="statCard" style="display:none">
+          <h3>移动端统计（GET /api/mobile/stat/summary）</h3>
+          <div class="kpi-grid" id="statGrid"><div class="kpi"><div class="k-label">加载中…</div><div class="k-value">-</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/query.js"></script>
+</body>
+</html>

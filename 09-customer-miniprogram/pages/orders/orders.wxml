@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="card" wx:for="{{list}}" wx:key="id" wx:for-index="idx" wx:for-item="order">
+    <view bindtap="toggle" data-id="{{order.id}}">
+      <view class="row">
+        <text class="order-no">{{order.orderNo}}</text>
+        <view class="spacer"></view>
+        <text class="tag {{order.open ? 'tag-ok' : ''}}">{{order.open ? '收起' : '明细'}}</text>
+      </view>
+      <view class="order-time">{{order.timeText}} · {{order.warehouseName}} · {{order.paymentText}}</view>
+      <view class="row" style="margin-top:14rpx">
+        <text class="muted">共 {{order.qtyText}} 件</text>
+        <view class="spacer"></view>
+        <text class="muted" style="margin-right:16rpx">原价 ¥{{order.amountText}}</text>
+        <text class="price"><text class="price-unit">¥</text>{{order.payText}}</text>
+      </view>
+    </view>
+
+    <block wx:if="{{order.open && order.items}}">
+      <view class="divider"></view>
+      <view class="item-row" wx:for="{{order.items}}" wx:for-item="it" wx:key="isbn">
+        <view class="item-body">
+          <view class="item-name">{{it.bookName}}</view>
+          <view class="muted">{{it.isbn}} · 单价 ¥{{it.priceText}}</view>
+        </view>
+        <view class="item-right">
+          <view class="muted">×{{it.qtyText}}</view>
+          <view class="item-amount">¥{{it.amountText}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="card" wx:if="{{!list.length && !loading}}">
+    <view class="empty">还没有消费记录</view>
+    <view class="btn-ghost" bindtap="goBooks">去逛逛书店</view>
+  </view>
+  <view class="load-more" wx:if="{{loading}}">加载中…</view>
+  <view class="load-more" wx:elif="{{list.length && !hasMore}}">共 {{total}} 笔消费记录</view>
+</view>

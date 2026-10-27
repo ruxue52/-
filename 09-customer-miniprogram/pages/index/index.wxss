@@ -1,0 +1,56 @@
+.quick-row {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+.quick-item {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+  padding: 26rpx 0;
+  text-align: center;
+  box-shadow: 0 6rpx 20rpx rgba(46, 74, 61, 0.06);
+}
+.quick-item:last-child { margin-right: 0; }
+.quick-icon {
+  width: 76rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin: 0 auto 12rpx;
+  border-radius: 50%;
+  background: #2e4a3d;
+  color: #f6f2e6;
+  font-size: 32rpx;
+}
+.quick-icon.gold { background: #b08d57; }
+.quick-icon.ink { background: #4b565f; }
+.quick-text { font-size: 25rpx; color: #5d6560; }
+
+.cat-grid { display: flex; flex-wrap: wrap; }
+.cat-item {
+  width: 30%;
+  margin: 0 5% 16rpx 0;
+  padding: 20rpx 0;
+  text-align: center;
+  background: #f7f4ec;
+  border-radius: 14rpx;
+  font-size: 26rpx;
+  color: #4a544e;
+}
+.cat-item:nth-child(3n) { margin-right: 0; }
+
+.book-list { margin-top: 20rpx; }
+.book-row {
+  display: flex;
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+}
+.book-row:last-child { border-bottom: none; }
+
+.foot-note {
+  padding: 30rpx 0 40rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #b3b6ae;
+  letter-spacing: 2rpx;
+}

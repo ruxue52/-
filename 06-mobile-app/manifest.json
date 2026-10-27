@@ -1,0 +1,70 @@
+{
+  "name": "晓镜书阁",
+  "appid": "__UNI__SHG0001",
+  "description": "晓镜书阁 · 书店进销存管理系统 移动端（Android / iOS / 鸿蒙）",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "modules": {
+      "Barcode": {}
+    },
+    "distribute": {
+      "android": {
+        "permissions": [
+          "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+          "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+          "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+          "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>"
+        ],
+        "minSdkVersion": 21,
+        "targetSdkVersion": 33,
+        "abiFilters": ["armeabi-v7a", "arm64-v8a", "x86_64"]
+      },
+      "ios": {
+        "dSYMs": false,
+        "privacyDescription": {
+          "NSCameraUsageDescription": "用于扫描图书条码进行盘点与库存查询"
+        }
+      },
+      "sdkConfigs": {}
+    }
+  },
+
+  "app-harmony": {
+    "__comment": "鸿蒙（HarmonyOS Next）打包：HBuilderX 3.99+ 选择「鸿蒙」发行。uni.scanCode 走鸿蒙相机扫码能力。",
+    "appid": "",
+    "distribute": {
+      "harmony": {
+        "permissions": [
+          "ohos.permission.CAMERA",
+          "ohos.permission.INTERNET"
+        ],
+        "minAPIVersion": 12
+      }
+    }
+  },
+
+  "quickapp": {},
+  "mp-weixin": {
+    "appid": "",
+    "setting": { "urlCheck": false },
+    "usingComponents": true
+  },
+  "h5": {
+    "title": "晓镜书阁",
+    "router": { "mode": "hash" }
+  },
+  "vueVersion": "3"
+}

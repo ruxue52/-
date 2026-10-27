@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8080 data:; img-src 'self' http://localhost:8080 data:; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>晓镜书阁 · 主界面</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <div class="topbar">
+        <h1>首页工作台</h1>
+        <div class="user" id="userBox"></div>
+      </div>
+      <div class="content">
+        <div class="card">
+          <h3>经营概览</h3>
+          <div class="kpi-grid" id="kpiGrid">
+            <div class="kpi"><div class="k-label">加载中…</div><div class="k-value">-</div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>常用功能</h3>
+          <div class="entry-grid">
+            <a class="entry" href="check.html">
+              <span class="e-icon">🧾</span>
+              <span class="e-title">库存盘点</span>
+              <span class="e-desc">选盘点单 · 扫码录入实盘</span>
+            </a>
+            <a class="entry" href="scan.html">
+              <span class="e-icon">📷</span>
+              <span class="e-title">扫码查询</span>
+              <span class="e-desc">ISBN 扫码 · 实时库存 / 货架位</span>
+            </a>
+            <a class="entry" href="query.html">
+              <span class="e-icon">📊</span>
+              <span class="e-title">单据 / 统计</span>
+              <span class="e-desc">出货单 · 进货单 · 移动统计</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>系统说明</h3>
+          <p class="muted">后端基地址：<b id="apiBase"></b>　|　登录账号：admin / 123456</p>
+          <p class="muted mt8">本 PC 端基于 Electron，可在麒麟 / 统信 UOS 等信创系统以 AppImage / deb / rpm 运行。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

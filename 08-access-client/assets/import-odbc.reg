@@ -1,0 +1,49 @@
+Windows Registry Editor Version 5.00
+
+; =====================================================================
+;  晓镜书阁 · Access 客户端 · 用户 DSN 注册表模板（import-odbc.reg）
+;  作用：快速创建名为 SHG-MySQL 的「用户数据源」，指向 MySQL 8 的 bookstore 库。
+;  使用前提：已安装 Microsoft Access Database 兼 http://dev.mysql.com 的
+;            "MySQL ODBC 8.0 Unicode Driver"。
+;
+;  导入方法（Windows 10/11）：
+;    双击本 .reg 文件 -> 是 -> 确定。然后到「ODBC 数据源管理器」核对。
+;
+;  ★ 位数匹配（重要）：
+;    - 本文件写入的是 **64 位视图** 的 HKCU\SOFTWARE\ODBC\ODBC.INI。
+;    - 若你的 Office 是 **32 位**，DSN 需落在 Wow6432Node 视图，路径改为：
+;         [HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\ODBC\ODBC.INI\SHG-MySQL]
+;         [HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\ODBC\ODBC.INI\ODBC Data Sources]
+;      并手动导入；或用 32 位的 odbcad32.exe（C:\Windows\SysWOW64\odbcad32.exe）手工新建。
+;
+;  ★ 请修改下面两项后再导入：
+;    - UID / PASSWORD：你的 MySQL 账号密码
+;    - SERVER / PORT：MySQL 主机与端口（默认 localhost:3306）
+; =====================================================================
+
+[HKEY_CURRENT_USER\SOFTWARE\ODBC\ODBC.INI\SHG-MySQL]
+"Driver"="C:\\Program Files\\MySQL\\Connector ODBC 8.0\\myodbc8w.dll"
+"Description"="晓镜书阁进销存 MySQL"
+"SERVER"="localhost"
+"PORT"="3306"
+"DATABASE"="bookstore"
+"UID"="root"
+"PASSWORD"="你的MySQL密码"
+"CHARSET"="utf8mb4"
+"OPTION"="3"
+"SSLMODE"="DISABLED"
+"PADCHAR"="0"
+"FOUND_ROWS"="1"
+"NO_I18N"="0"
+
+[HKEY_CURRENT_USER\SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources]
+"SHG-MySQL"="MySQL ODBC 8.0 Unicode Driver"
+
+; ---------------------------------------------------------------------
+;  说明：
+;  - "Driver" 需指向实际安装路径下的 myodbc8w.dll（Unicode版）。
+;    若安装在 Program Files (x86) 或版本不同，请相应修改。
+;  - 直接写明文 PASSWORD 仅用于本地开发；生产建议改用文件 DSN 或
+;    由应用运行时用 td.Connect 动态拼接。
+;  - 删除 DSN：把上述两处键值删除，或在 ODBC 管理器中删除 SHG-MySQL。
+; ---------------------------------------------------------------------

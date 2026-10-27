@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8080 data:; img-src 'self' http://localhost:8080 data:; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>晓镜书阁 · 库存盘点</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <div class="topbar">
+        <h1>库存盘点</h1>
+        <div class="user" id="userBox"></div>
+      </div>
+      <div class="content">
+        <div class="card">
+          <div class="row">
+            <h3 style="margin:0">盘点单列表</h3>
+            <div class="spacer"></div>
+            <button class="btn" id="refreshOrders">刷新</button>
+          </div>
+          <div class="table-wrap mt8">
+            <table>
+              <thead>
+                <tr>
+                  <th>盘点单号</th><th>仓库</th><th>类型</th><th>状态</th>
+                  <th>品种数</th><th>差异数</th><th>盘点人</th><th>创建时间</th><th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="orderBody">
+                <tr><td colspan="9" class="center muted">加载中…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" id="detailCard" style="display:none">
+          <div class="row">
+            <h3 style="margin:0">盘点录入：<span id="detailNo" class="muted"></span></h3>
+            <div class="spacer"></div>
+            <button class="btn success" id="finishBtn">完成盘点</button>
+          </div>
+
+          <div class="card mt8" style="background:#fafbff">
+            <label class="muted">扫码 / 输入 ISBN 录入实盘（扫码枪回车即录入，每次 +1）</label>
+            <div class="scan-input mt8">
+              <input type="text" id="scanInput" placeholder="扫描图书条码 或 手动输入 ISBN，回车录入" autocomplete="off" />
+              <button class="btn primary" id="scanBtn">录入 +1</button>
+              <input type="number" id="scanQty" value="1" min="1" style="width:90px;flex:none" title="本次录入数量" />
+            </div>
+            <div class="notice mt8">支持二维码内容规范：SHG:BOOK:&lt;isbn&gt; / SHG:CHECK:&lt;checkNo&gt;:&lt;isbn&gt;；也可直接输入 ISBN。</div>
+          </div>
+
+          <div class="row mt8">
+            <button class="btn" id="saveItems">保存实盘数量</button>
+            <span class="muted" id="statText"></span>
+          </div>
+
+          <div class="table-wrap mt8">
+            <table>
+              <thead>
+                <tr>
+                  <th>ISBN</th><th>书名</th><th>账面数量</th><th>实盘数量</th><th>差异</th><th>货架</th>
+                </tr>
+              </thead>
+              <tbody id="itemBody">
+                <tr><td colspan="6" class="center muted">请选择盘点单</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/check.js"></script>
+</body>
+</html>

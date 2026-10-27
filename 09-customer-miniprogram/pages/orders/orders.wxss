@@ -1,0 +1,30 @@
+.order-no {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2e4a3d;
+  letter-spacing: 1rpx;
+}
+.order-time {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #8b8f88;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+}
+.item-row:last-child { border-bottom: none; }
+.item-body { flex: 1; min-width: 0; }
+.item-name { font-size: 27rpx; color: #23282a; margin-bottom: 6rpx; }
+.item-right { text-align: right; margin-left: 16rpx; }
+.item-amount { font-size: 27rpx; color: #3a423d; margin-top: 4rpx; }
+
+.load-more {
+  padding: 26rpx 0 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #a9ada6;
+}

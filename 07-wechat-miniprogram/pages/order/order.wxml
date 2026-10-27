@@ -1,0 +1,42 @@
+<!-- 晓镜书阁 · 单据查询页 -->
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{tab === 'sale' ? 'active' : ''}}" data-tab="sale" bindtap="switchTab">出货单</view>
+    <view class="tab {{tab === 'purchase' ? 'active' : ''}}" data-tab="purchase" bindtap="switchTab">进货单</view>
+  </view>
+
+  <view class="card" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openDetail">
+    <view class="row">
+      <text class="o-no">{{item.orderNo}}</text>
+      <view class="spacer"></view>
+      <text class="tag">{{item.status}}</text>
+    </view>
+    <view class="o-line">
+      <text class="o-sub">{{item.warehouseName || ('仓库' + item.warehouseId)}}</text>
+      <text class="o-amount">¥{{item.payAmount || '0.00'}}</text>
+    </view>
+    <view class="o-sub">{{item.createTime}}　|　{{tab === 'sale' ? (item.customerName || '散户') : (item.supplierName || '供应商')}}</view>
+  </view>
+
+  <view wx:if="{{list.length === 0}}" class="card muted center">暂无单据数据</view>
+
+  <!-- 详情弹层 -->
+  <view class="mask" wx:if="{{detail}}" bindtap="closeDetail">
+    <view class="detail-box" catchtap="noop">
+      <view class="detail-title">{{detail.orderNo}}</view>
+      <view class="kv"><text class="k">仓库</text><text class="v">{{detail.warehouseName || detail.warehouseId}}</text></view>
+      <view class="kv"><text class="k">数量</text><text class="v">{{detail.totalQty}}</text></view>
+      <view class="kv"><text class="k">总金额</text><text class="v">¥{{detail.totalAmount || '0.00'}}</text></view>
+      <view class="kv"><text class="k">实付/应收</text><text class="v">¥{{detail.payAmount || '0.00'}}</text></view>
+      <view class="kv"><text class="k">经办人</text><text class="v">{{detail.operatorName || '-'}}</text></view>
+      <view class="kv"><text class="k">时间</text><text class="v">{{detail.createTime}}</text></view>
+      <view class="card-title mt16">明细</view>
+      <view class="di-row" wx:for="{{detail.items}}" wx:key="id">
+        <text class="di-name">{{item.bookName}}</text>
+        <text class="di-qty">×{{item.quantity}}</text>
+        <text class="di-amt">¥{{item.amount || '0.00'}}</text>
+      </view>
+      <button class="close-btn" bindtap="closeDetail">关闭</button>
+    </view>
+  </view>
+</view>

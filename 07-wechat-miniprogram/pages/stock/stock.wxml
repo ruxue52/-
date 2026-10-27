@@ -1,0 +1,36 @@
+<!-- 晓镜书阁 · 库存查询页 -->
+<view class="container">
+  <view class="card">
+    <view class="card-title">库存在线查询</view>
+    <view class="search">
+      <input class="input" value="{{keyword}}" placeholder="扫码或输入 ISBN / 书名" confirm-type="search" bindinput="onKeyword" bindconfirm="search" />
+      <button class="btn-scan" bindtap="scan">📷</button>
+      <button class="btn-go" bindtap="search">查询</button>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{book}}">
+    <view class="card-title">{{book.bookName || '图书信息'}}</view>
+    <view class="kv"><text class="k">ISBN</text><text class="v">{{book.isbn || '-'}}</text></view>
+    <view class="kv"><text class="k">作者</text><text class="v">{{book.author || '-'}}</text></view>
+    <view class="kv"><text class="k">出版社</text><text class="v">{{book.publisherName || '-'}}</text></view>
+    <view class="kv"><text class="k">定价</text><text class="v">¥{{book.price || '0.00'}}</text></view>
+    <view class="kv"><text class="k">货架位</text><text class="v">{{book.shelfNo || '-'}}</text></view>
+  </view>
+
+  <view class="card" wx:if="{{stockList.length > 0}}">
+    <view class="card-title">各仓库存</view>
+    <view class="stock-row" wx:for="{{stockList}}" wx:key="index">
+      <view class="st-left">
+        <text class="st-wh">{{item.warehouseName || ('仓库' + item.warehouseId)}}</text>
+        <text class="st-shelf">货架：{{item.shelfNo || '-'}}　安全库存：{{item.safetyStock || 0}}</text>
+      </view>
+      <text class="st-qty {{item.quantity < item.safetyStock ? 'low' : ''}}">{{item.quantity}}</text>
+    </view>
+  </view>
+
+  <view class="card center muted" wx:elif="{{searched}}">未查询到该图书的库存记录</view>
+  <view class="card" wx:else>
+    <view class="muted">输入 ISBN 或使用扫码按钮，查询图书与各仓实时库存、货架位。</view>
+  </view>
+</view>

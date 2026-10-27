@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8080 data:; img-src 'self' http://localhost:8080 data:; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>晓镜书阁 · 扫码查询</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <div class="topbar">
+        <h1>扫码查询</h1>
+        <div class="user" id="userBox"></div>
+      </div>
+      <div class="content">
+        <div class="card">
+          <h3>扫码 / 输入 ISBN</h3>
+          <div class="scan-input">
+            <input type="text" id="code" placeholder="使用扫码枪扫描图书条码，或输入 ISBN，回车查询" autocomplete="off" />
+            <button class="btn primary" id="queryBtn">查询</button>
+          </div>
+          <div class="notice mt8">支持内容规范：SHG:BOOK:&lt;isbn&gt;；亦支持直接输入 ISBN。对应接口 POST /api/scan/resolve、GET /api/mobile/stock/quick。</div>
+        </div>
+
+        <div class="card" id="resultCard" style="display:none">
+          <div class="row">
+            <h3 style="margin:0">查询结果</h3>
+            <span class="tag draft" id="bizType"></span>
+            <div class="spacer"></div>
+            <button class="btn sm" id="clearBtn">清空</button>
+          </div>
+
+          <div class="row mt16" style="align-items:flex-start;gap:24px">
+            <div style="flex:1;min-width:260px">
+              <table>
+                <tbody id="bookTable"></tbody>
+              </table>
+            </div>
+            <div class="qr-box">
+              <img id="qrImg" alt="图书二维码" />
+              <span class="muted">图书二维码</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="stockCard" style="display:none">
+          <h3>实时库存 / 货架位</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>仓库</th><th>在库数量</th><th>安全库存</th><th>货架位</th></tr>
+              </thead>
+              <tbody id="stockBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/scan.js"></script>
+</body>
+</html>

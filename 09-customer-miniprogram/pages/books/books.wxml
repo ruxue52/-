@@ -1,0 +1,52 @@
+<!-- 图书检索 -->
+<view class="filter-bar">
+  <view class="search-box">
+    <text class="muted">🔍</text>
+    <input class="search-input" placeholder="书名 / 作者 / ISBN" placeholder-class="search-placeholder"
+           value="{{keyword}}" confirm-type="search" bindinput="onKeyword" bindconfirm="onSearch" />
+    <text class="clear" wx:if="{{keyword}}" bindtap="onClearKeyword">✕</text>
+  </view>
+
+  <scroll-view class="chip-scroll" scroll-x>
+    <view class="chip {{!categoryId ? 'active' : ''}}" data-id="" bindtap="pickCategory">全部</view>
+    <view wx:for="{{categories}}" wx:key="id"
+          class="chip {{categoryId === item.id ? 'active' : ''}}"
+          data-id="{{item.id}}" data-name="{{item.categoryName}}" bindtap="pickCategory">{{item.categoryName}}</view>
+  </scroll-view>
+
+  <scroll-view class="chip-scroll" scroll-x wx:if="{{subCats.length}}">
+    <view wx:for="{{subCats}}" wx:key="id"
+          class="chip sub {{categoryId === item.id ? 'active' : ''}}"
+          data-id="{{item.id}}" data-name="{{item.categoryName}}" bindtap="pickSubCategory">{{item.categoryName}}</view>
+  </scroll-view>
+
+  <view class="sort-row">
+    <view class="sort-item {{sort === 'default' ? 'on' : ''}}" data-sort="default" bindtap="pickSort">综合</view>
+    <view class="sort-item {{sort === 'newest' ? 'on' : ''}}" data-sort="newest" bindtap="pickSort">最新</view>
+    <view class="spacer"></view>
+    <text class="muted">共 {{total}} 种</text>
+  </view>
+</view>
+
+<view class="container">
+  <view class="card">
+    <view class="book-row" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+      <image wx:if="{{item.coverUrl}}" class="book-cover" src="{{item.coverUrl}}" mode="aspectFill" />
+      <view wx:else class="cover-ph {{item.coverSkin}}">{{item.coverText}}</view>
+      <view class="book-info">
+        <view class="book-name">{{item.bookName}}</view>
+        <view class="book-meta">{{item.author}}</view>
+        <view class="book-meta">{{item.publisherName}} · {{item.publishDate}}</view>
+        <view class="mt16">
+          <text class="price"><text class="price-unit">¥</text>{{item.priceText}}</text>
+          <text class="price-old" wx:if="{{item.priceOld}}">¥{{item.priceOld}}</text>
+        </view>
+      </view>
+      <view class="tag">{{item.categoryName}}</view>
+    </view>
+
+    <view class="empty" wx:if="{{!list.length && !loading}}">没有找到符合条件的图书</view>
+    <view class="load-more" wx:if="{{loading}}">加载中…</view>
+    <view class="load-more" wx:elif="{{list.length && !hasMore}}">已到底部</view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!-- 晓镜书阁 · 登录页 -->
+<view class="login-page">
+  <view class="login-head">
+    <view class="logo">书</view>
+    <view class="app-name">晓镜书阁 · 进销存</view>
+    <view class="app-sub">微信小程序</view>
+  </view>
+
+  <view class="login-form">
+    <view class="field">
+      <text class="label">账号</text>
+      <input class="input" value="{{username}}" placeholder="请输入账号，如 admin" bindinput="onUsername" />
+    </view>
+    <view class="field">
+      <text class="label">密码</text>
+      <input class="input" password value="{{password}}" placeholder="请输入密码" bindinput="onPassword" />
+    </view>
+
+    <view class="msg">{{msg}}</view>
+    <button class="btn" loading="{{loading}}" bindtap="doLogin">登 录</button>
+    <view class="tip">默认账号：admin / 123456</view>
+  </view>
+</view>

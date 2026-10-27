@@ -1,0 +1,57 @@
+.scan-hero {
+  padding: 70rpx 32rpx 60rpx;
+  text-align: center;
+  background: linear-gradient(135deg, #33513f 0%, #2e4a3d 55%, #24382f 100%);
+  color: #f2efe6;
+}
+.hero-title {
+  font-size: 40rpx;
+  letter-spacing: 6rpx;
+}
+.hero-sub {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: rgba(242, 239, 230, 0.7);
+}
+.scan-btn {
+  width: 340rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  margin: 44rpx auto 0;
+  border-radius: 46rpx;
+  background: #b08d57;
+  color: #fffaf0;
+  font-size: 30rpx;
+  letter-spacing: 6rpx;
+}
+
+.manual-row { display: flex; align-items: center; }
+.manual-input {
+  flex: 1;
+  height: 84rpx;
+  padding: 0 24rpx;
+  background: #f7f4ec;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+}
+.manual-btn {
+  width: 150rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  margin-left: 20rpx;
+  text-align: center;
+  border-radius: 14rpx;
+  background: #2e4a3d;
+  color: #f6f2e6;
+  font-size: 28rpx;
+}
+
+.recent-row {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+  font-size: 26rpx;
+}
+.recent-row:last-child { border-bottom: none; }
+.recent-isbn { color: #3a423d; letter-spacing: 1rpx; }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8080 data:; img-src 'self' http://localhost:8080 data:; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>晓镜书阁 · 登录</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="title">晓镜书阁 · 书店进销存</div>
+      <div class="subtitle">进销存管理系统 · PC 端（Electron）</div>
+
+      <div class="field">
+        <label>账号</label>
+        <input type="text" id="username" placeholder="请输入账号，如 admin" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label>密码</label>
+        <input type="password" id="password" placeholder="请输入密码" />
+      </div>
+
+      <div class="login-msg" id="msg"></div>
+      <button class="btn primary" id="loginBtn">登 录</button>
+
+      <div class="tip">默认账号：admin / 123456（后端未启动时无法登录）</div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

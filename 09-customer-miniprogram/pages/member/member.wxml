@@ -1,0 +1,100 @@
+<!-- 未登录 -->
+<block wx:if="{{!logged}}">
+  <view class="brand-bar">
+    <view class="brand-name">会员中心</view>
+    <view class="brand-motto">登录后可查积分、余额与消费记录</view>
+  </view>
+  <view class="container">
+    <view class="card">
+      <view class="empty" style="padding:40rpx 0">尚未登录会员账号</view>
+      <view class="btn-primary" bindtap="goLogin">手机号登录</view>
+    </view>
+    <view class="card">
+      <view class="card-title">会员等级权益</view>
+      <view class="level-row" wx:for="{{levels}}" wx:key="id">
+        <text class="level-name">{{item.levelName}}</text>
+        <view class="spacer"></view>
+        <text class="muted">结算价 {{item.discount}}% · 积分 {{item.pointRate}} 倍</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- 已登录 -->
+<block wx:else>
+  <view class="brand-bar">
+    <view class="member-head">
+      <view class="avatar">{{avatarText}}</view>
+      <view class="head-info">
+        <view class="member-name">{{member.customerName}}</view>
+        <view class="member-sub">
+          <text class="level-badge">{{member.levelName}}</text>
+          <text class="card-no">卡号 {{member.customerCode}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="card">
+      <view class="stat-grid">
+        <view class="stat-cell">
+          <view class="stat-value">{{member.points}}</view>
+          <view class="stat-label">会员积分</view>
+        </view>
+        <view class="stat-cell">
+          <view class="stat-value">{{member.balanceText}}</view>
+          <view class="stat-label">账户余额</view>
+        </view>
+        <view class="stat-cell">
+          <view class="stat-value">{{member.totalAmountText}}</view>
+          <view class="stat-label">累计消费</view>
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="row">
+        <text class="muted">{{member.phone}} · {{member.address}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="entry" bindtap="goOrders">
+        <text class="entry-icon">单</text>
+        <view class="entry-body">
+          <view class="entry-title">我的消费记录</view>
+          <view class="muted">共 {{member.orderCount}} 笔</view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
+      <view class="entry" bindtap="goScan">
+        <text class="entry-icon gold">扫</text>
+        <view class="entry-body">
+          <view class="entry-title">扫码查书</view>
+          <view class="muted">扫条码看门店在架</view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
+      <view class="entry" bindtap="goBooks">
+        <text class="entry-icon ink">书</text>
+        <view class="entry-body">
+          <view class="entry-title">浏览图书</view>
+          <view class="muted">按分类挑选好书</view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">会员等级权益</view>
+      <view class="level-row {{item.levelCode === member.levelCode ? 'on' : ''}}"
+            wx:for="{{levels}}" wx:key="id">
+        <text class="level-name">{{item.levelName}}</text>
+        <view class="spacer"></view>
+        <text class="muted">结算价 {{item.discount}}% · 积分 {{item.pointRate}} 倍</text>
+        <text class="level-flag" wx:if="{{item.levelCode === member.levelCode}}">当前</text>
+      </view>
+    </view>
+
+    <view class="btn-ghost" bindtap="logout">退出登录</view>
+  </view>
+</block>

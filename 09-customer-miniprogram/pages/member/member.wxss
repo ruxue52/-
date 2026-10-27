@@ -1,0 +1,70 @@
+.member-head { display: flex; align-items: center; }
+.avatar {
+  width: 110rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  border-radius: 50%;
+  text-align: center;
+  background: #b08d57;
+  color: #fffaf0;
+  font-size: 44rpx;
+}
+.head-info { margin-left: 24rpx; }
+.member-name { font-size: 38rpx; letter-spacing: 3rpx; }
+.member-sub { margin-top: 14rpx; display: flex; align-items: center; }
+.level-badge {
+  padding: 6rpx 18rpx;
+  border-radius: 20rpx;
+  background: rgba(176, 141, 87, 0.28);
+  border: 2rpx solid rgba(176, 141, 87, 0.7);
+  font-size: 22rpx;
+  color: #f4e6cd;
+}
+.card-no {
+  margin-left: 16rpx;
+  font-size: 22rpx;
+  color: rgba(242, 239, 230, 0.72);
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+}
+.entry:last-child { border-bottom: none; }
+.entry-icon {
+  width: 76rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  border-radius: 18rpx;
+  background: #2e4a3d;
+  color: #f6f2e6;
+  font-size: 30rpx;
+  margin-right: 22rpx;
+}
+.entry-icon.gold { background: #b08d57; }
+.entry-icon.ink { background: #4b565f; }
+.entry-body { flex: 1; }
+.entry-title { font-size: 29rpx; color: #23282a; margin-bottom: 6rpx; }
+.entry-arrow { color: #c2c5bd; font-size: 34rpx; }
+
+.level-row {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f2eee4;
+  font-size: 26rpx;
+}
+.level-row:last-child { border-bottom: none; }
+.level-name { color: #3a423d; }
+.level-row.on .level-name { color: #2e4a3d; font-weight: 600; }
+.level-flag {
+  margin-left: 16rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 8rpx;
+  background: #2e4a3d;
+  color: #f6f2e6;
+  font-size: 20rpx;
+}

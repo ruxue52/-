@@ -1,0 +1,36 @@
+<!-- 晓镜书阁 · 扫码页 -->
+<view class="container">
+  <view class="card">
+    <view class="card-title">扫码识别</view>
+    <button class="scan-btn" bindtap="startScan">📷 开始扫码</button>
+    <view class="muted mt8">支持图书 / 单据 / 库存位 / 盘点 二维码。</view>
+    <view class="manual mt16">
+      <input class="input" value="{{manual}}" placeholder="或手动输入 ISBN / 扫码内容" bindinput="onManual" />
+      <button class="btn" bindtap="resolveManual">解析</button>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{result}}">
+    <view class="row">
+      <view class="card-title" style="margin:0">解析结果</view>
+      <view class="spacer"></view>
+      <text class="tag">{{result.bizType}}</text>
+    </view>
+    <view class="kv" wx:for="{{entityRows}}" wx:key="k">
+      <text class="k">{{item.k}}</text>
+      <text class="v">{{item.v}}</text>
+    </view>
+    <view class="actions mt16" wx:if="{{isbn}}">
+      <button class="btn primary" bindtap="queryStock">查看库存</button>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{stockList.length > 0}}">
+    <view class="card-title">实时库存</view>
+    <view class="stock-row" wx:for="{{stockList}}" wx:key="index">
+      <text class="s-wh">{{item.warehouseName || item.warehouseId}}</text>
+      <text class="s-qty {{item.quantity < item.safetyStock ? 'low' : ''}}">{{item.quantity}}</text>
+      <text class="s-shelf">{{item.shelfNo || '-'}}</text>
+    </view>
+  </view>
+</view>
