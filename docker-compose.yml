@@ -1,5 +1,7 @@
 # 一条命令启动全栈：docker compose up -d --build
 # 访问：http://localhost:8088 （初始账号 admin / 123456）
+name: psi-erp
+
 services:
   mysql:
     image: mysql:8.0

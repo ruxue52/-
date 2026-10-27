@@ -95,4 +95,4 @@ jobs:
           cache-to: type=gha,mode=max,scope=psi-web
 
       - name: 校验 docker-compose 配置
-        run: docker compose config --quiet
+        run: docker compose -p psi-erp config --quiet
