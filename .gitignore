@@ -33,3 +33,7 @@ uploads/
 
 # ---- Agent workspace (本地方案与临时脚本，不入库) ----
 .trae/
+
+# ---- 发布包（构建产物，不入库） ----
+release/
+*.zip
